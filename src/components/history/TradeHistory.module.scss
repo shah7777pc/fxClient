@@ -1,0 +1,49 @@
+.darkMode {
+  :global(div[data-color="yellow"] span) {
+    color: var(--warning-contrast, #fff) !important;
+  }
+  
+  :global(div[data-color="green"] span) {
+    color: var(--success-contrast, #fff) !important;
+  }
+}
+
+.darkThemeTable {
+  :global(table) {
+    border-color: var(--border-color-dark, rgba(255, 255, 255, 0.1));
+    width: 100% !important;
+  }
+  
+  :global(th), :global(td) {
+    border-color: var(--border-color-dark, rgba(255, 255, 255, 0.1));
+  }
+}
+
+.centered {
+  width: 100%;
+  margin: 0 auto;
+  max-width: none !important;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.tableContainer {
+  :global(.once-table) {
+    width: 100% !important;
+    max-width: none !important;
+    table-layout: fixed !important;
+  }
+
+  :global(.once-table table) {
+    width: 100% !important;
+  }
+}
+
+.pageContainer {
+  :global(.once-background), :global(.once-card), :global(.once-flex) {
+    width: 100% !important;
+    max-width: none !important;
+  }
+} 

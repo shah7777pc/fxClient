@@ -1,0 +1,131 @@
+.tradeMonitor {
+  padding: 1rem;
+  
+  :global {
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      
+      th, td {
+        padding: 0.75rem;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color, #eaeaea);
+      }
+      
+      th {
+        font-weight: bold;
+        background-color: var(--background-secondary, #f9f9f9);
+      }
+      
+      tr:hover {
+        background-color: var(--background-hover, #f5f5f5);
+        
+        // Dark theme specific hover styles for better contrast
+        [data-theme="dark"] & {
+          background-color: rgba(255, 255, 255, 0.08); // Very subtle highlight
+          color: var(--static-white, #ffffff);
+          
+          // Make sure badges and status indicators remain visible
+          span, div {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+.darkMode {
+  // Additional styles for dark mode
+  :global {
+    // Make text more visible
+    text, h1, h2, h3, h4, h5, h6, p, span {
+      color: var(--neutral-on-background-strong) !important;
+    }
+    
+    // Better hover states for interactive elements
+    button, a {
+      &:hover {
+        filter: brightness(1.2);
+      }
+    }
+  }
+}
+
+.darkThemeTable {
+  :global {
+    table {
+      // Better dark theme styles for tables
+      
+      tr {
+        border-color: rgba(255, 255, 255, 0.1) !important;
+        
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1) !important;
+          
+          td {
+            color: white !important;
+          }
+        }
+      }
+      
+      th {
+        background-color: rgba(0, 0, 0, 0.2) !important;
+        color: var(--neutral-on-background-strong) !important;
+        border-color: rgba(255, 255, 255, 0.1) !important;
+      }
+      
+      td {
+        border-color: rgba(255, 255, 255, 0.05) !important;
+      }
+    }
+    
+    // Ensure children components are visible
+    [role="cell"] > * {
+      z-index: 1;
+      position: relative;
+    }
+  }
+}
+
+.tradesContainer {
+  margin-top: 2rem;
+  
+  > div {
+    margin-bottom: 2rem;
+  }
+}
+
+.tableContainer {
+  margin-top: 1rem;
+  width: 100%;
+  overflow-x: auto;
+}
+
+// Dark theme specific styles
+:global([data-theme="dark"]) {
+  .tradeMonitor {
+    // Ensure text is always visible against backgrounds
+    :global(.Table) {
+      td, th {
+        color: var(--neutral-on-background-strong, #ffffff);
+      }
+      
+      // Status badges in dark mode
+      :global(.Badge) {
+        opacity: 0.95;
+        
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.centered {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+} 
